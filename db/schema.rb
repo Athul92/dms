@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160605090530) do
+ActiveRecord::Schema.define(version: 20160605121429) do
+
+  create_table "profiles", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "age"
+    t.string   "bike_owned"
+    t.string   "gender"
+    t.string   "riding_since"
+    t.string   "profession"
+    t.string   "location"
+    t.text     "bio"
+    t.text     "address"
+    t.string   "mobile"
+    t.string   "android_token"
+    t.string   "ios_token"
+    t.string   "auth_token"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
