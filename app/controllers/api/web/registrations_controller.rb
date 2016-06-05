@@ -7,10 +7,12 @@ class Api::Web::RegistrationsController < ApplicationController
     @user.password = params[:user][:password]
     @user.role = "Guest"
     if @user.save
+      @profile = Profile.new
+      @profile.user_id = @user.id
+      @profile.update_attributes(params[:profile])
       render json: {
           user_name: @user.email
       }
     end
   end
-
 end
